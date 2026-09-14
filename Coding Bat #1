@@ -1,0 +1,119 @@
+Coding Bat #1
+
+String-1:
+  left2:
+    public String left2(String str) {
+      char c1 = str.charAt(0);
+      char c2 = str.charAt(1);
+      String result = str.substring(2,str.length());
+      result += c1;
+      result += c2;
+      return result;
+    }
+  
+  middle2:
+    public String middleTwo(String str) {
+      int half = str.length() / 2;
+      String middle = str.substring(half-1,half+1);
+      return middle;
+    }
+
+
+
+String-2
+  starOut:
+    public String starOut(String str) {
+      String result = "";
+      String left = "";
+      String right = "";
+      for(int i=0;i<str.length();i++){
+        if(i!=0){
+          left = str.substring(i-1,i);
+        }
+        String middle = str.substring(i,i+1);
+        if(i+1 < str.length()){
+          right = str.substring(i+1,i+2);
+        }
+        if((!left.equals("*")) && (!middle.equals("*")) && (!right.equals("*"))){
+          result += middle;
+        }
+      }
+  
+    return result;
+  }
+
+  endOther:
+    public boolean endOther(String a, String b) {
+      a = a.toLowerCase();
+      b = b.toLowerCase();
+      String length = "";
+      if(a.length() >= b.length()){
+        length = a.substring(a.length() - b.length(), a.length());
+        if(length.equals(b)){
+          return true;
+        }
+      }else{
+        length = b.substring(b.length() - a.length(), b.length());
+        if(length.equals(a)){
+          return true;
+        }
+      }
+      return false;
+    }
+  
+
+
+Logic-1
+  teenSum
+    public int teenSum(int a, int b) {
+      if((a>=13 && a<=19) || (b>=13 && b<=19)){
+        return 19;
+      }else{
+        return a+b;
+      }
+    }
+  fizzString2
+    public String fizzString2(int n) {
+      if(n%3==0&&n%5==0){
+        return "FizzBuzz!";
+      }else if(n%3==0){
+        return "Fizz!";
+      }else if(n%5==0){
+        return "Buzz!";
+      }else{
+        return n + "!";
+      }
+    }
+
+
+
+Logic-2
+  makeBricks
+    public boolean makeBricks(int small, int big, int goal) {
+      int x = goal/5;
+      int y = 0;
+      if(x>=big){
+        y = goal - big*5;
+      }else{
+        y = goal - goal/5 * 5;
+      }
+      if(y<=small){
+        return true;
+      }else{
+        return false;
+      }
+    }
+  loneSum
+    public int loneSum(int a, int b, int c) {
+      int result = 0;
+      if(a!=b && a!=c){
+        result += a;
+      }
+      if(b!=a&&b!=c){
+        result += b;
+      }
+      if(c!=b&&c!=a){
+        result += c;
+      }
+      return result;
+    }
